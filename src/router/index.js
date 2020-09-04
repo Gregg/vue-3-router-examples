@@ -7,6 +7,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    // props: true => we already learned about this
+    // props: { showExtra: true },
+    props: (route) => ({ showExtra: route.query.e }),
   },
   {
     path: "/about",
