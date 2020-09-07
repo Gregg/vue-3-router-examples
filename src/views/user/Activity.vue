@@ -5,7 +5,7 @@
     <router-link :to="{ name: 'UserFriends', params: { username } }">Friends</router-link> |
     <router-link :to="{ name: 'UserActivity', params: { username } }">Activity</router-link>
   </div>
-  <h2>Recent Activity List</h2>
+  <h2>Recent Activity List for {{ username }}</h2>
 </template>
 <script>
 export default {
