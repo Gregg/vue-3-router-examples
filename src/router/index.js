@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import About from "../views/About.vue";
+import UserProfile from "../views/user/Profile.vue";
+import UserFriends from "../views/user/Friends.vue";
+import UserActivity from "../views/user/Activity.vue";
 
 const routes = [
   {
@@ -9,9 +11,22 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
-    component: About,
+    path: "/user/:username",
+    name: "UserProfile",
+    component: UserProfile,
+    props: true,
+  },
+  {
+    path: "/user/:username/friends",
+    name: "UserFriends",
+    component: UserFriends,
+    props: true,
+  },
+  {
+    path: "/user/:username/activity",
+    name: "UserActivity",
+    component: UserActivity,
+    props: true,
   },
 ];
 
