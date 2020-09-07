@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import UserProfile from "../views/user/Profile.vue";
 import UserFriends from "../views/user/Friends.vue";
 import UserActivity from "../views/user/Activity.vue";
+import UserLayout from "../views/user/Layout.vue";
 
 const routes = [
   {
@@ -12,21 +13,29 @@ const routes = [
   },
   {
     path: "/user/:username",
-    name: "UserProfile",
-    component: UserProfile,
+    name: "UserLayout",
+    component: UserLayout,
     props: true,
-  },
-  {
-    path: "/user/:username/friends",
-    name: "UserFriends",
-    component: UserFriends,
-    props: true,
-  },
-  {
-    path: "/user/:username/activity",
-    name: "UserActivity",
-    component: UserActivity,
-    props: true,
+    children: [
+      {
+        path: "",
+        name: "UserProfile",
+        component: UserProfile,
+        props: true,
+      },
+      {
+        path: "friends",
+        name: "UserFriends",
+        component: UserFriends,
+        props: true,
+      },
+      {
+        path: "activity",
+        name: "UserActivity",
+        component: UserActivity,
+        props: true,
+      },
+    ],
   },
 ];
 
